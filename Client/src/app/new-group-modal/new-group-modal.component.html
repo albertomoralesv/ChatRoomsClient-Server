@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button style="visibility: hidden;">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Create New Group</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-new-group-name-input (newGroupChatNameInput)="onNewGroupChatNameChange($event)"></app-new-group-name-input>
+  <ion-progress-bar *ngIf="loading" type="indeterminate" color="success"></ion-progress-bar>
+  <h6 *ngIf="error" style="color: red;">{{incorrectMessage}}</h6>
+  <ion-button (click)="createGroup()">Create Group</ion-button>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="custom-button" fill="outline" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+
+    <ion-title style="font-weight: bolder; text-align: center;">
+      Server Configuration
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button class="custom-button" fill="outline" (click)="saveServerConfig()">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="vertical-center">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="7" size-sm="5" size-md="6" size-lg="6">
+        <app-node-address-input-field (nodeAddressInput)="onNodeAddressChange($event)"></app-node-address-input-field>
+      </ion-col>
+      <ion-col size="5" size-sm="5" size-md="4" size-lg="4">
+        <app-node-port-input-field (nodePortInput)="onNodePortChange($event)"></app-node-port-input-field>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="7" size-sm="5" size-md="6" size-lg="6">
+        <app-socket-address-input-field (socketAddressInput)="onSocketAddressChange($event)"></app-socket-address-input-field>
+      </ion-col>
+      <ion-col size="5" size-sm="5" size-md="4" size-lg="4">
+        <app-socket-port-input-field (socketPortInput)="onSocketPortChange($event)"></app-socket-port-input-field>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" *ngIf="serverTestLoading">
+      <ion-col size="4" class="ion-text-center">
+        <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" *ngIf="incorrectMessage !== ''">
+      <ion-col size="12" class="ion-text-center">
+        <h6 style="color: red;">{{incorrectMessage}}</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-button expand="fill" class="test-button" (click)="testServerConnection()">Test Connection</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

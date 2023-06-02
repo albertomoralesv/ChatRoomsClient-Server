@@ -1,0 +1,6 @@
+<ion-item fill="outline" class="customItem">
+  <ion-label position="stacked" color="secondary" class="custom-label">
+    Group Chat Name
+  </ion-label>
+  <ion-input [(ngModel)]="groupChatName" ngDefaultControl (ionChange)="emit()" maxlength="20" type="text" placeholder="Enter group name to join.." class="customInput"></ion-input>
+</ion-item>

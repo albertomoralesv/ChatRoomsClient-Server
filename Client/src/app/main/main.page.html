@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="newGroup()" class="custom-button">
+        <ion-icon name="add-circle"></ion-icon>
+        <span> Create Group </span>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" style="margin-left: 5px;">
+      <ion-button (click)="joinGroup()" class="custom-button">
+        <ion-icon name="enter"></ion-icon>
+        <span> Join Group </span>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-title class="ion-text-center">Chats</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" class="custom-button">
+        Logout
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="height: 100%;">
+    <ion-row style="background-color: #DCDCDC; min-height: 100%;">
+      <ion-col>
+        <app-groups-list (customEvent)="onCustomEvent($event)"></app-groups-list>
+      </ion-col>
+      <ion-col>
+        <app-chat-screen [groupName]="selectedGroup"></app-chat-screen>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

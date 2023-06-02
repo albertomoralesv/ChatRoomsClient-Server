@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']" [replaceUrl]="true">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid" style="text-transform: none;" [routerLink]="['/register']" [replaceUrl]="true">
+        Register
+        <ion-icon slot="end" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="vertical-center">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <!-- Title -->
+        <h1 style="font-size: 2.5rem; font-weight: bolder;">Login</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="7" size-sm="5" size-md="4" size-lg="3">
+        <app-username-input-field (usernameInput)="onUsernameChange($event)"></app-username-input-field>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="7" size-sm="5" size-md="4" size-lg="3">
+        <app-password-input-field (passwordInput)="onPasswordChange($event)"></app-password-input-field>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" *ngIf="loading">
+      <ion-col size="4" class="ion-text-center">
+        <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" *ngIf="incorrectMessage !== ''">
+      <ion-col size="12" class="ion-text-center">
+        <h6 style="color: red;">{{incorrectMessage}}</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="4" size-sm="2" size-md="2" size-lg="2" class="ion-text-center">
+        <app-login-button (click)="login()"></app-login-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

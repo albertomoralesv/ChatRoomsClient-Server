@@ -1,0 +1,6 @@
+<ion-item fill="outline" class="customItem">
+  <ion-label position="stacked" color="secondary" class="custom-label">
+    NodeJS Port
+  </ion-label>
+  <ion-input [(ngModel)]="nodePort" ngDefaultControl (ionChange)="emit()" min="0" max="65535" type="number" placeholder="XXXX" class="customInput"></ion-input>
+</ion-item>

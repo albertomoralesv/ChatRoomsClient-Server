@@ -1,0 +1,39 @@
+.custom-toolbar{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Adjust the distribution as needed */
+  //padding-top: 10vh;
+  //padding-bottom: 10vh;
+  min-height: 100%;
+}
+
+.gap-row{
+  margin-bottom: 5vh;
+}
+
+@media screen and (orientation: landscape) {
+  .gap-row {
+    margin-bottom: 0px; /* Adjust the margin value for landscape orientation */
+  }
+}
+
+.custom-button{
+  text-transform: none;
+  --background: #344C95;
+  color: white;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.server-button{
+  text-transform: none;
+  --background: orange;
+  color: white;
+  font-size: 1.1rem;
+  width: 100%;
+}

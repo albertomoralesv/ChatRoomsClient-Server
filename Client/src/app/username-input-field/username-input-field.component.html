@@ -1,0 +1,7 @@
+<ion-item fill="outline" class="customItem">
+  <ion-label position="stacked" color="secondary" class="custom-label">
+    <ion-icon name="person-outline"></ion-icon>
+    User Name
+  </ion-label>
+  <ion-input [(ngModel)]="userName" ngDefaultControl (ionChange)="emit()" maxlength="20" type="text" placeholder="Enter user name" class="customInput"></ion-input>
+</ion-item>

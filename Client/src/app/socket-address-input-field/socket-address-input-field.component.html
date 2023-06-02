@@ -1,0 +1,6 @@
+<ion-item fill="outline" class="customItem">
+  <ion-label position="stacked" color="secondary" class="custom-label">
+    Socket Server Address
+  </ion-label>
+  <ion-input [(ngModel)]="socketAddress" ngDefaultControl (ionChange)="emit()" maxlength="20" type="text" placeholder="xxx.xxx.xxx.xxx" class="customInput"></ion-input>
+</ion-item>

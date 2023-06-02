@@ -1,0 +1,20 @@
+.custom-item {
+  background-color: #f2f2f2;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container {
+  background-color: #205DA9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Set the desired minimum height */
+}
+
+ion-toolbar.header-toolbar {
+  --background: #002189;
+  margin-bottom: 5px;
+}

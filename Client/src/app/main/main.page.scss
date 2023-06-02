@@ -1,0 +1,34 @@
+.custom-button {
+  background-color: #57BAFF;
+  width: 100%;
+  font-size: 1rem;
+  color: black;
+  font-weight: bolder;
+  text-transform: none;
+  border-radius: 10%;
+}
+
+.custom-button:hover{
+  background-color: red;
+}
+
+.custom-toolbar {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (max-width: 600px) {
+  .custom-button ion-icon {
+    margin-right: 0;
+  }
+
+  .custom-button span {
+    display: none;
+  }
+}
+
+ion-content {
+  --ion-background-color: #DCDCDC; /* Set the desired background color */
+}
+
+

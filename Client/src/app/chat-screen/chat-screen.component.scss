@@ -1,0 +1,46 @@
+ion-item{
+  overflow: auto; /* Add a scrollbar when content exceeds the height */
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #f2f2f2;
+  border-width: 1px;
+}
+
+.item-label {
+  white-space: pre-wrap; /* Allow text to wrap to multiple lines and preserve line breaks */
+  text-align: justify;
+  text-justify: distribute;
+}
+
+.custom-toolbar-button {
+  background-color: #9AEF3A;
+  width: 100%;
+  font-size: 1rem;
+  color: black;
+  font-weight: bolder;
+  text-transform: none;
+  border-radius: 10%;
+}
+
+.custom-toolbar-button:hover{
+  background-color: #489751;
+}
+
+ion-toolbar.header-toolbar {
+  --background: #146c94;
+}
+
+ion-toolbar.footer-toolbar {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+.container {
+  background-color: #19A7CE;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Set the desired minimum height */
+}
+

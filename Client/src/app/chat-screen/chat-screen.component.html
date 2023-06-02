@@ -1,0 +1,54 @@
+<div *ngIf="groupName !== ''" class="container">
+  <ion-toolbar class="header-toolbar">
+    <ion-buttons slot="start">
+      <ion-button class="custom-toolbar-button" style="margin-left: 5px;" (click)="adminGroup()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Admin</span>
+      </ion-button>
+      <ion-button class="custom-toolbar-button" style="margin-left: 5px;" (click)="refreshChat()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      {{groupName}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="custom-toolbar-button" style="margin-right: 5px;" (click)="closeChatScreen()">
+        Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-grid style="background-color: #19A7CE; width: 100%; overflow: auto; max-height: 70vh;">
+    <h1 *ngIf="messages2.length === 0"></h1>
+    <ion-row *ngFor="let message of iterableMessages" style="background-color: #19A7CE;">
+      <ion-col size="10">
+        <ion-item *ngIf="message.sender === 'Admin'"  style="background-color: red;">
+          <ion-label class="item-label">
+            <h2>{{ message.sender }}</h2>
+            <p>{{ message.content }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="message.sender === this.httpRequestsService.loggedUsername"  style="background-color: blue;">
+          <ion-label class="item-label">
+            <h2>{{ message.sender }}</h2>
+            <p>{{ message.content }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="message.sender !== 'Admin' && message.sender !== this.httpRequestsService.loggedUsername"  style="background-color: yellow;">
+          <ion-label class="item-label">
+            <h2>{{ message.sender }}</h2>
+            <p>{{ message.content }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-toolbar class="footer-toolbar">
+    <ion-input placeholder="Type a message" [(ngModel)]="newMessage"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="sendMessage()">
+        Send
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</div>

@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-grid class="vertical-center">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center gap-row">
+        <!-- Title -->
+        <h1 style="font-size: 2.5rem; font-weight: bolder;">Chat Rooms</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center gap-row">
+        <h6 style="font-size: 0.8rem; font-weight: bold; color: green;" *ngIf="httpRequestsService.nodeServerActive&&httpRequestsService.socketServerActive">Server Online</h6>
+        <h6 style="font-size: 0.8rem; font-weight: bold; color: red;" *ngIf="!httpRequestsService.nodeServerActive||!httpRequestsService.socketServerActive">Server Offline</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="7" size-sm="5" size-md="4" size-lg="2" class="ion-text-center">
+        <ion-button class="server-button" (click)="openModal()">Configure Server</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-text-center">
+      <ion-col size="7" size-sm="5" size-md="4" size-lg="2">
+        <ion-button [disabled]="!httpRequestsService.nodeServerActive||!httpRequestsService.socketServerActive" class="custom-button" [routerLink]="['/login']">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center gap-row ion-text-center">
+      <ion-col size="7" size-sm="5" size-md="4" size-lg="2">
+        <ion-button [disabled]="!httpRequestsService.nodeServerActive||!httpRequestsService.socketServerActive" class="custom-button" [routerLink]="['/register']">Register</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="isMobile" class="ion-justify-content-center">
+      <ion-col size="6" size-sm="4" size-md="3" size-lg="1" class="ion-text-center">
+        <ion-button class="custom-button" (click)="closeApp()">Exit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

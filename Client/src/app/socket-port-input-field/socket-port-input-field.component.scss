@@ -1,0 +1,28 @@
+ion-input.customInput {
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-color-secondary);
+  --placeholder-color: var(--ion-color-secondary);
+  --placeholder-opacity: .3;
+  border-top-color: var(--ion-color-secondary);
+  border-top-style: solid;
+  border-top-width: 1px ;
+  font-size: 1.1rem;
+  width: 80%;
+  white-space: normal;
+}
+
+.custom-label{
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+ion-item.customItem {
+  --border-color: transparent;
+  --background: var(--ion-color-tertiary);
+  --border-style: solid;
+  --border-width: 2px;
+  font-size: small;
+  max-width: 100%;
+}

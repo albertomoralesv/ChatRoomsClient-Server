@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons *ngIf="admin" slot="start">
+      <ion-button (click)="pendingReq()" *ngIf="this.httpRequestsService.groupsData[this.groupName]['pending'].length===0" disabled="true">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-badge slot="end">{{this.httpRequestsService.groupsData[this.groupName]['pending'].length}}</ion-badge>
+      </ion-button>
+      <ion-button (click)="pendingReq()" *ngIf="this.httpRequestsService.groupsData[this.groupName]['pending'].length!==0">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-badge slot="end">{{this.httpRequestsService.groupsData[this.groupName]['pending'].length}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngIf="admin" class="invite-users-row">
+      <ion-col offset="1" size="8">
+        <ion-select fill="solid" label="Invite users" label-placement="floating" [(ngModel)]="selectedUser">
+          <ng-container *ngFor="let username of httpRequestsService.allUsers">
+            <ion-select-option *ngIf="isUserInGroup(username)" value="{{username}}">
+              {{username}}
+            </ion-select-option>
+          </ng-container>
+        </ion-select>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button *ngIf="selectedUser!==''" (click)="addUser()">
+          <ion-icon name="person-add-outline"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="selectedUser===''" disabled="true">
+          <ion-icon name="person-add-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="group-users-rows">
+      <ion-col>
+        <ion-list [inset]="true">
+          <ion-item *ngFor="let user of iterableUsers">
+            <ion-label>{{user.username}}</ion-label>
+            <p *ngIf="user.role === '2'">Owner</p>
+            <p *ngIf="user.role === '1'">Administrator</p>
+            <p *ngIf="user.role === '0'">Member</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

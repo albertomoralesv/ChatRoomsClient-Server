@@ -1,0 +1,26 @@
+<div class="container">
+  <ion-toolbar class="header-toolbar">
+    <ion-buttons slot="start">
+      <ion-button class="custom-toolbar-button" style="margin-left: 5px;" (click)="refreshGroups()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      Groups
+    </ion-title>
+  </ion-toolbar>
+  <ion-list lines="full">
+    <ion-item *ngIf="this.httpRequestsService.loggedUserGroups.length===0" button class="custom-item" disabled="true">
+      <h5>No Groups</h5>
+    </ion-item>
+    <!-- <ion-item button class="custom-item" (click)="groupClicked('test')">
+      test
+    </ion-item>
+    <ion-item button class="custom-item" (click)="groupClicked('test 2')">
+      test2
+    </ion-item> -->
+    <ion-item *ngFor="let group of this.httpRequestsService.loggedUserGroups" button class="custom-item" (click)="groupClicked(group)">
+      {{group}}
+    </ion-item>
+  </ion-list>
+</div>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="ion-text-center">
+      Pending Requests to Join
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="group-users-rows">
+      <ion-col>
+        <ion-list [inset]="true">
+          <ion-item *ngFor="let user of iterablePendingUsers">
+            <ion-label>{{user}}</ion-label>
+            <ion-buttons slot="end">
+              <ion-button (click)="accept(user)">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="reject(user)">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
